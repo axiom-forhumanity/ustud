@@ -1,0 +1,52 @@
+units:
+  - id: math_basics
+    name: "Introduction to Math"
+    description: "Learn numbers, counting, and basic operations"
+    difficulty: 1
+    lessons:
+      - id: addition_intro
+        title: "Introduction to Addition"
+        description: "Learn what addition means and add small numbers"
+        difficulty: 2
+        prerequisites: []
+        topics: ["addition", "arithmetic"]
+
+      - id: subtraction_intro
+        title: "Introduction to Subtraction"
+        description: "Learn what subtraction means"
+        difficulty: 2
+        prerequisites: ["addition_intro"]
+        topics: ["subtraction", "arithmetic"]
+
+      - id: multiplication_intro
+        title: "Introduction to Multiplication"
+        description: "Multiplication as repeated addition"
+        difficulty: 3
+        prerequisites: ["subtraction_intro"]
+        topics: ["multiplication", "arithmetic"]
+
+  - id: science_basics
+    name: "Introduction to Science"
+    description: "Discover the world around us"
+    difficulty: 1
+    lessons:
+      - id: living_things
+        title: "Living and Non-Living Things"
+        description: "What makes something alive?"
+        difficulty: 1
+        prerequisites: []
+        topics: ["biology", "life"]
+
+      - id: plants
+        title: "Plants"
+        description: "How plants grow and what they need"
+        difficulty: 2
+        prerequisites: ["living_things"]
+        topics: ["biology", "plants"]
+
+      - id: animals
+        title: "Animals"
+        description: "Different types of animals"
+        difficulty: 2
+        prerequisites: ["living_things"]
+        topics: ["biology", "animals"]

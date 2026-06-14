@@ -1,0 +1,38 @@
+units:
+  - id: letters
+    name: "The Alphabet"
+    description: "Learn the English letters A to Z"
+    difficulty: 1
+    lessons:
+      - id: letters_a_m
+        title: "Letters A to M"
+        description: "The first half of the alphabet"
+        difficulty: 1
+        prerequisites: []
+        topics: ["alphabet", "letters"]
+
+      - id: letters_n_z
+        title: "Letters N to Z"
+        description: "The second half of the alphabet"
+        difficulty: 1
+        prerequisites: ["letters_a_m"]
+        topics: ["alphabet", "letters"]
+
+  - id: simple_words
+    name: "Simple Words"
+    description: "Common words for everyday use"
+    difficulty: 2
+    lessons:
+      - id: greetings
+        title: "Greetings and Polite Words"
+        description: "Hello, thank you, please, and more"
+        difficulty: 1
+        prerequisites: ["letters_n_z"]
+        topics: ["greetings", "vocabulary"]
+
+      - id: numbers_words
+        title: "Number Words"
+        description: "One, two, three - words for numbers"
+        difficulty: 2
+        prerequisites: ["greetings"]
+        topics: ["numbers", "vocabulary"]

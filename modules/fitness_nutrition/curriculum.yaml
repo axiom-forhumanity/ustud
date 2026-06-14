@@ -1,0 +1,38 @@
+units:
+  - id: nutrition
+    name: "Healthy Eating"
+    description: "Food that helps our bodies grow strong"
+    difficulty: 1
+    lessons:
+      - id: food_groups
+        title: "Food Groups"
+        description: "Fruits, vegetables, grains, and more"
+        difficulty: 1
+        prerequisites: []
+        topics: ["nutrition", "food"]
+
+      - id: water_importance
+        title: "Why Water Matters"
+        description: "Staying hydrated for health"
+        difficulty: 1
+        prerequisites: ["food_groups"]
+        topics: ["water", "health"]
+
+  - id: movement
+    name: "Simple Movement"
+    description: "Easy exercises for every day"
+    difficulty: 2
+    lessons:
+      - id: stretching
+        title: "Stretching"
+        description: "Gentle stretches to feel good"
+        difficulty: 1
+        prerequisites: ["water_importance"]
+        topics: ["exercise", "stretching"]
+
+      - id: walking
+        title: "Walking for Health"
+        description: "How walking helps our body and mind"
+        difficulty: 2
+        prerequisites: ["stretching"]
+        topics: ["exercise", "walking"]

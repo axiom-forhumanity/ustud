@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+.env
+*.db
+*.zim
+*.log
+node_modules/
+
+# Library PDFs — too large for GitHub; run: python scripts/download_oer.py
+Library/**/*.pdf
+Library/**/**/*.pdf
+
+# Built frontend (rebuild with: cd boiler && npm run build)
+boiler/dist/
+
+# AXIOM — local CEO notes (never commit)
+management/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.cursor/plans/

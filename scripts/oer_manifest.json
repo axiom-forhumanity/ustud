@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "url": "https://openstax.org/documents/1240/Calculus_Volume_1_-_WEB_l4sAIKd.pdf",
+      "path": "oer/math/OpenStax_Calculus_Volume_1.pdf",
+      "license": "CC BY-NC-SA 4.0 (OpenStax)"
+    },
+    {
+      "url": "https://openstax.org/documents/1241/Calculus_Volume_2_-_WEB.pdf",
+      "path": "oer/math/OpenStax_Calculus_Volume_2.pdf",
+      "license": "CC BY-NC-SA 4.0 (OpenStax)"
+    },
+    {
+      "url": "https://openstax.org/documents/1242/Calculus_Volume_3_-_WEB.pdf",
+      "path": "oer/math/OpenStax_Calculus_Volume_3.pdf",
+      "license": "CC BY-NC-SA 4.0 (OpenStax)"
+    },
+    {
+      "url": "https://openstax.org/documents/1559/College-Algebra-2e-WEB.pdf",
+      "path": "oer/math/OpenStax_College_Algebra_2e.pdf",
+      "license": "CC BY 4.0 (OpenStax)"
+    },
+    {
+      "url": "https://openstax.org/documents/1230/Biology2e-WEB.pdf",
+      "path": "oer/science/OpenStax_Biology_2e.pdf",
+      "license": "CC BY 4.0 (OpenStax)"
+    },
+    {
+      "url": "https://openstax.org/documents/1247/Chemistry2e-WEB.pdf",
+      "path": "oer/science/OpenStax_Chemistry_2e.pdf",
+      "license": "CC BY 4.0 (OpenStax)"
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/1342/pg1342.pdf",
+      "path": "oer/english/Gutenberg_Pride_and_Prejudice_Austen.pdf",
+      "license": "Public domain (US)"
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/84/pg84.pdf",
+      "path": "oer/english/Gutenberg_Frankenstein_Shelley.pdf",
+      "license": "Public domain (US)"
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/11/pg11.pdf",
+      "path": "oer/english/Gutenberg_Alice_in_Wonderland_Carroll.pdf",
+      "license": "Public domain (US)"
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/2701/pg2701.pdf",
+      "path": "oer/english/Gutenberg_Moby_Dick_Melville.pdf",
+      "license": "Public domain (US)"
+    }
+  ]
+}

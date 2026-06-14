@@ -1,0 +1,7 @@
+{
+  "id": "core_curriculum",
+  "name": "Core Curriculum",
+  "description": "Math, Science, and Language basics - guided from fundamentals to advanced",
+  "content_packs": ["math_basics", "science_basics", "wikipedia_simple"],
+  "curriculum_structure": "curriculum.yaml"
+}

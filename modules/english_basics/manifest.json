@@ -1,0 +1,7 @@
+{
+  "id": "english_basics",
+  "name": "English Basics",
+  "description": "Learn English from the beginning - letters, words, and simple sentences",
+  "content_packs": ["english_intro"],
+  "curriculum_structure": "curriculum.yaml"
+}

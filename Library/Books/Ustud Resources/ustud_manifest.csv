@@ -1,0 +1,55 @@
+filename,title,subject,publisher,year,license,size_mb,format,source,ingestion_status,library_rel_path
+OpenStax_Anatomy_Physiology.pdf,Openstax Anatomy Physiology,Biology,,,,129.1,PDF,Local library,pending,Biology/OpenStax_Anatomy_Physiology.pdf
+OpenStax_Biology_2e.pdf,Openstax Biology 2E,Biology,,,,0.0,PDF,Local library,pending,Biology/OpenStax_Biology_2e.pdf
+OpenStax_Microbiology.pdf,Openstax Microbiology,Biology,,,,296.0,PDF,Local library,pending,Biology/OpenStax_Microbiology.pdf
+OpenStax_Financial_Accounting.pdf,Financial Accounting,Business/Accounting,OpenStax,2019,CC BY 4.0,156.7,PDF,OpenStax / OER,pending,Business/Accounting/OpenStax_Financial_Accounting.pdf
+OpenStax_Managerial_Accounting.pdf,Managerial Accounting,Business/Accounting,OpenStax,2019,CC BY 4.0,77.3,PDF,OpenStax / OER,pending,Business/Accounting/OpenStax_Managerial_Accounting.pdf
+OpenStax_Business_Ethics.pdf,Business Ethics,Business/Business Ethics,OpenStax,2019,CC BY 4.0,44.6,PDF,OpenStax / OER,pending,Business/Business Ethics/OpenStax_Business_Ethics.pdf
+OpenStax_Entrepreneurship.pdf,Entrepreneurship: Building an Opportunity-Focused Business,Business/Entrepreneurship,OpenStax,2020,CC BY 4.0,124.4,PDF,OpenStax / OER,pending,Business/Entrepreneurship/OpenStax_Entrepreneurship.pdf
+OpenStax_Introduction_to_Business.pdf,Introduction to Business,Business/Entrepreneurship,OpenStax,2019,CC BY 4.0,52.6,PDF,OpenStax / OER,pending,Business/Entrepreneurship/OpenStax_Introduction_to_Business.pdf
+OpenStax_Introductory_Business_Statistics_2e.pdf,Introductory Business Statistics 2e,Business/Entrepreneurship,OpenStax,2023,CC BY 4.0,19.1,PDF,OpenStax / OER,pending,Business/Entrepreneurship/OpenStax_Introductory_Business_Statistics_2e.pdf
+VT_Fundamentals_of_Business.pdf,Fundamentals of Business,Business/Entrepreneurship,Virginia Tech,2019,CC BY-NC-SA 4.0,25.5,PDF,OpenStax / OER,pending,Business/Entrepreneurship/VT_Fundamentals_of_Business.pdf
+OpenStax_Business_Statistics.pdf,Business Statistics,Business/Finance,OpenStax,2021,CC BY 4.0,22.8,PDF,OpenStax / OER,pending,Business/Finance/OpenStax_Business_Statistics.pdf
+OpenStax_Principles_of_Finance.pdf,Principles of Finance,Business/Finance,OpenStax,2022,CC BY 4.0,59.6,PDF,OpenStax / OER,pending,Business/Finance/OpenStax_Principles_of_Finance.pdf
+Saylor_International_Business.pdf,Saylor International Business,Business/International Business,,,,6.0,PDF,Local library,pending,Business/International Business/Saylor_International_Business.pdf
+OpenStax_Business_Law.pdf,Business Law I Essentials,Business/Law,OpenStax,2019,CC BY 4.0,15.1,PDF,OpenStax / OER,pending,Business/Law/OpenStax_Business_Law.pdf
+OpenStax_Business_Law_I_Essentials.pdf,Business Law I Essentials (Alt),Business/Law,OpenStax,2019,CC BY 4.0,15.1,PDF,OpenStax / OER,pending,Business/Law/OpenStax_Business_Law_I_Essentials.pdf
+OpenStax_Organizational_Behavior.pdf,Organizational Behavior,Business/Management,OpenStax,2019,CC BY 4.0,48.0,PDF,OpenStax / OER,pending,Business/Management/OpenStax_Organizational_Behavior.pdf
+OpenStax_Principles_of_Management.pdf,Principles of Management,Business/Management,OpenStax,2019,CC BY 4.0,50.3,PDF,OpenStax / OER,pending,Business/Management/OpenStax_Principles_of_Management.pdf
+OpenStax_Principles_of_Marketing.pdf,Principles of Marketing,Business/Marketing,OpenStax,2023,CC BY 4.0,56.8,PDF,OpenStax / OER,pending,Business/Marketing/OpenStax_Principles_of_Marketing.pdf
+OpenStax_Chemistry_2e_HQ.pdf,Chemistry 2e,Chemistry,OpenStax,2019,CC BY 4.0,206.1,PDF,OpenStax / OER,pending,Chemistry/OpenStax_Chemistry_2e_HQ.pdf
+OpenStax_Chemistry_Atoms_First.pdf,Chemistry: Atoms First 2e,Chemistry,OpenStax,2019,CC BY 4.0,206.6,PDF,OpenStax / OER,pending,Chemistry/OpenStax_Chemistry_Atoms_First.pdf
+OpenStax_Organic_Chemistry.pdf,Organic Chemistry,Chemistry,OpenStax,2023,CC BY-NC-SA 4.0,193.1,PDF,OpenStax / OER,pending,Chemistry/OpenStax_Organic_Chemistry.pdf
+OpenStax_Intro_Computer_Science.pdf,Introduction to Computer Science,Computer Science,OpenStax,2021,CC BY 4.0,50.9,PDF,OpenStax / OER,pending,Computer Science/OpenStax_Intro_Computer_Science.pdf
+Think_Java.pdf,Think Java: How to Think Like a Computer Scientist,Computer Science,Allen Downey,2016,CC BY-NC 3.0,1.8,PDF,OpenStax / OER,pending,Computer Science/Think_Java.pdf
+Think_Python_2e.pdf,Think Python 2e,Computer Science,Allen Downey,2016,CC BY-NC 3.0,0.9,PDF,OpenStax / OER,pending,Computer Science/Think_Python_2e.pdf
+Music-in-World-Cultures.pdf,Music-In-World-Cultures,Culture,,,,1.6,PDF,Local library,pending,Culture/Music-in-World-Cultures.pdf
+OpenStax_Economics_3e.pdf,Economics 3e,Economics,OpenStax,2022,CC BY 4.0,62.6,PDF,OpenStax / OER,pending,Economics/OpenStax_Economics_3e.pdf
+OpenStax_Macroeconomics_3e.pdf,Macroeconomics 3e,Economics,OpenStax,2022,CC BY 4.0,48.5,PDF,OpenStax / OER,pending,Economics/OpenStax_Macroeconomics_3e.pdf
+OpenStax_Microeconomics_3e.pdf,Microeconomics 3e,Economics,OpenStax,2022,CC BY 4.0,27.0,PDF,OpenStax / OER,pending,Economics/OpenStax_Microeconomics_3e.pdf
+OpenStax_College_Physics_2e.pdf,College Physics 2e,Engineering,OpenStax,2022,CC BY 4.0,267.4,PDF,OpenStax / OER,pending,Engineering/OpenStax_College_Physics_2e.pdf
+OpenStax_University_Physics_Vol1.pdf,University Physics Vol. 1,Engineering,OpenStax,2016,CC BY 4.0,75.0,PDF,OpenStax / OER,pending,Engineering/OpenStax_University_Physics_Vol1.pdf
+OpenStax_US_History_HQ.pdf,U.S. History,History,OpenStax,2014,CC BY 4.0,130.8,PDF,OpenStax / OER,pending,History/OpenStax_US_History_HQ.pdf
+OpenStax_World_History_Vol1.pdf,World History Vol. 1: to 1500,History,OpenStax,2023,CC BY 4.0,190.0,PDF,OpenStax / OER,pending,History/OpenStax_World_History_Vol1.pdf
+OpenStax_World_History_Vol2.pdf,World History Vol. 2: from 1400,History,OpenStax,2023,CC BY 4.0,122.7,PDF,OpenStax / OER,pending,History/OpenStax_World_History_Vol2.pdf
+Writing In English.pdf,Writing In English,Literature,,,,17.9,PDF,Local library,pending,Literature/Writing In English.pdf
+OpenStax_Algebra_Trigonometry.pdf,Openstax Algebra Trigonometry,Mathematics,,,,52.5,PDF,Local library,pending,Mathematics/OpenStax_Algebra_Trigonometry.pdf
+OpenStax_Calculus_Vol1.pdf,Openstax Calculus Vol1,Mathematics,,,,39.5,PDF,Local library,pending,Mathematics/OpenStax_Calculus_Vol1.pdf
+OpenStax_Calculus_Vol2.pdf,Openstax Calculus Vol2,Mathematics,,,,41.6,PDF,Local library,pending,Mathematics/OpenStax_Calculus_Vol2.pdf
+OpenStax_Calculus_Vol3.pdf,Openstax Calculus Vol3,Mathematics,,,,61.7,PDF,Local library,pending,Mathematics/OpenStax_Calculus_Vol3.pdf
+OpenStax_Precalculus.pdf,Openstax Precalculus,Mathematics,,,,78.0,PDF,Local library,pending,Mathematics/OpenStax_Precalculus.pdf
+Calculus.pdf,Calculus,Mathmatics,,,,9.9,PDF,Local library,pending,Mathmatics/Calculus.pdf
+Linear Algebra.pdf,Linear Algebra,Mathmatics,,,,2.3,PDF,Local library,pending,Mathmatics/Linear Algebra.pdf
+Probability.pdf,Probability,Mathmatics,,,,2.9,PDF,Local library,pending,Mathmatics/Probability.pdf
+Nutritiion.pdf,Nutritiion,Medicine,,,,25.6,PDF,Local library,pending,Medicine/Nutritiion.pdf
+OpenStax_Introduction_to_Philosophy.pdf,Introduction to Philosophy,Philosophy,OpenStax,2022,CC BY 4.0,48.3,PDF,OpenStax / OER,pending,Philosophy/OpenStax_Introduction_to_Philosophy.pdf
+OpenStax_University_Physics_Vol2.pdf,Openstax University Physics Vol2,Physics,,,,59.3,PDF,Local library,pending,Physics/OpenStax_University_Physics_Vol2.pdf
+OpenStax_University_Physics_Vol3.pdf,Openstax University Physics Vol3,Physics,,,,49.6,PDF,Local library,pending,Physics/OpenStax_University_Physics_Vol3.pdf
+OpenStax_Lifespan_Development.pdf,Lifespan Development,Psychology,OpenStax,2023,CC BY 4.0,66.5,PDF,OpenStax / OER,pending,Psychology/OpenStax_Lifespan_Development.pdf
+OpenStax_Psychology_2e.pdf,Psychology 2e,Psychology,OpenStax,2020,CC BY 4.0,83.9,PDF,OpenStax / OER,pending,Psychology/OpenStax_Psychology_2e.pdf
+OpenText_Abnormal_Psychology_2e.pdf,Abnormal Psychology 2e,Psychology,OpenText BC,2020,CC BY-NC-SA 4.0,2.8,PDF,OpenStax / OER,pending,Psychology/OpenText_Abnormal_Psychology_2e.pdf
+OpenStax_Intro_Sociology_3e.pdf,Introduction to Sociology 3e,Sociology,OpenStax,2021,CC BY 4.0,44.3,PDF,OpenStax / OER,pending,Sociology/OpenStax_Intro_Sociology_3e.pdf
+OpenStax_Business_Statistics_2e.pdf,Introductory Business Statistics 2e,Business/Finance,OpenStax,2023,CC BY 4.0,19.1,PDF,OpenStax / OER,pending,Business/Finance/OpenStax_Business_Statistics_2e.pdf
+OpenStax_Introductory_Statistics.pdf,Introductory Statistics,Statistics,OpenStax,2013,CC BY 4.0,25.3,PDF,OpenStax / OER,pending,Statistics/OpenStax_Introductory_Statistics.pdf
+OpenStax_Introductory_Statistics_2e.pdf,Introductory Statistics 2e,Statistics,OpenStax,2023,CC BY 4.0,19.1,PDF,OpenStax / OER,pending,Statistics/OpenStax_Introductory_Statistics_2e.pdf
+OpenStax_Statistics.pdf,Statistics,Statistics,OpenStax,2022,CC BY 4.0,30.6,PDF,OpenStax / OER,pending,Statistics/OpenStax_Statistics.pdf

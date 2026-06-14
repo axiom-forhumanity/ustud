@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ustud"
+version = "0.1.0"
+description = "Offline AI Learning Platform for Afghan Girls"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "ollama>=0.3.0",
+    "libzim>=0.9.0",
+    "transformers>=4.36.0",
+    "sentencepiece>=0.1.99",
+    "torch>=2.0.0",
+    "pyyaml>=6.0",
+    "aiosqlite>=0.19.0",
+    "httpx>=0.26.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ustud"]

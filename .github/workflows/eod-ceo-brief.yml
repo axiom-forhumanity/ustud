@@ -1,0 +1,32 @@
+name: EOD CEO Brief
+
+on:
+  schedule:
+    # 11:00 PM UTC daily — adjust cron to match employee timezone EOD
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+
+jobs:
+  send-brief:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate and email CEO brief
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CEO_EMAIL: ${{ secrets.CEO_EMAIL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM: ${{ secrets.RESEND_FROM }}
+        run: node scripts/generate-eod-brief.mjs

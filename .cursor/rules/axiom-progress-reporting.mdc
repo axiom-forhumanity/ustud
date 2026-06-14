@@ -1,0 +1,41 @@
+---
+description: AXIOM progress logging and management reporting requirements
+alwaysApply: true
+---
+
+# AXIOM Progress Reporting (Required)
+
+You are working on an AXIOM project under management oversight.
+
+## Required reading at session start
+If not already confirmed this session, read:
+- cursor/AXIOM_OPERATING_INSTRUCTIONS.md
+- docs/PROJECT_BRIEF.md
+- progress/CURRENT_STATE.md
+- progress/BLOCKERS.md
+
+## After every meaningful coding session or task completion
+Update these files (append only — never delete history):
+
+1. progress/DAILY_LOG.md — today's work entry
+2. progress/CURRENT_STATE.md — rolling project snapshot
+3. progress/BLOCKERS.md — if any blocker or management question exists
+4. docs/DECISION_LOG.md — if an architectural or scope decision was made
+
+Use the format in progress/TEMPLATE.md.
+
+Each DAILY_LOG entry must include:
+- Date
+- Work completed
+- Files changed
+- What is working
+- What is not working
+- Risks or concerns
+- Next recommended step
+- Questions for management (if any)
+
+## Rules
+- Do not invent AXIOM strategy beyond docs/PROJECT_BRIEF.md and docs/AXIOM_VISION.md
+- Do not make major scope or architecture changes without documenting in BLOCKERS.md
+- If uncertain about requirements, add a question to BLOCKERS.md instead of guessing
+- Before ending a session, ensure progress files are updated and summarize what was logged

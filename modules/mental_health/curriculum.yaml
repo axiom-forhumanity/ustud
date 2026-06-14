@@ -1,0 +1,31 @@
+units:
+  - id: emotions
+    name: "Understanding Emotions"
+    description: "Learn about feelings and how to name them"
+    difficulty: 1
+    lessons:
+      - id: feelings_intro
+        title: "What Are Feelings?"
+        description: "Introduction to emotions - happy, sad, angry, and more"
+        difficulty: 1
+        prerequisites: []
+        topics: ["emotions", "mental health"]
+
+      - id: coping_basics
+        title: "Simple Ways to Feel Better"
+        description: "Breathing, talking, and safe activities"
+        difficulty: 2
+        prerequisites: ["feelings_intro"]
+        topics: ["coping", "wellbeing"]
+
+  - id: self_care
+    name: "Self-Care"
+    description: "Taking care of yourself"
+    difficulty: 2
+    lessons:
+      - id: rest_sleep
+        title: "Rest and Sleep"
+        description: "Why sleep matters and how to rest well"
+        difficulty: 2
+        prerequisites: ["coping_basics"]
+        topics: ["sleep", "health"]

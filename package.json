@@ -1,0 +1,15 @@
+{
+  "name": "ustud",
+  "private": true,
+  "description": "UStud — run API + Vite UI together",
+  "scripts": {
+    "dev:all": "concurrently -n api,ui -c blue,magenta \"python run.py\" \"npm run dev --prefix boiler\"",
+    "dev:api": "python run.py",
+    "dev:ui": "npm run dev --prefix boiler",
+    "build:ui": "npm run build --prefix boiler",
+    "reboot": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/reboot.ps1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

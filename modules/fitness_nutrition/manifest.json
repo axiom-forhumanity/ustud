@@ -1,0 +1,7 @@
+{
+  "id": "fitness_nutrition",
+  "name": "Fitness & Nutrition",
+  "description": "Healthy eating and simple exercises (coming soon)",
+  "content_packs": ["health_basics"],
+  "curriculum_structure": "curriculum.yaml"
+}

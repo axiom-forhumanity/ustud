@@ -1,0 +1,7 @@
+{
+  "id": "mental_health",
+  "name": "Mental Health & Wellbeing",
+  "description": "Understanding emotions, stress, and self-care (coming soon)",
+  "content_packs": ["wellbeing_basics"],
+  "curriculum_structure": "curriculum.yaml"
+}

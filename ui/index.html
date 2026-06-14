@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UStud - Learn Together</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div>
+        <h1>UStud</h1>
+        <p class="tagline">Learn at your own pace</p>
+      </div>
+      <div class="header-actions">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Search courses & Wikipedia..." />
+          <label class="search-ai-label">
+            <input type="checkbox" id="searchWithAI" />
+            <span>AI summary</span>
+          </label>
+          <button id="searchBtn" class="btn btn-primary">Search</button>
+        </div>
+        <label class="toggle-label">
+          <input type="checkbox" id="translateToggle" />
+          <span>Show in my language</span>
+        </label>
+        <select id="langSelect" class="lang-select" aria-label="Translation language">
+          <option value="fa">Dari</option>
+          <option value="ps">Pashto</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <h2>Courses</h2>
+        <ul id="moduleList"></ul>
+        <div id="curriculumNav" class="curriculum-nav"></div>
+      </aside>
+
+      <section class="content">
+        <div id="welcome" class="welcome">
+          <h2>Welcome</h2>
+          <p>Choose a course from the sidebar to start learning. Each lesson builds on the previous one.</p>
+          <p>You can ask the AI tutor any question using the chat below.</p>
+        </div>
+        <div id="lessonView" class="lesson-view hidden">
+          <h2 id="lessonTitle"></h2>
+          <p id="lessonDesc" class="lesson-desc"></p>
+          <div id="lessonContent" class="lesson-content"></div>
+          <div class="lesson-actions">
+            <button id="completeBtn" class="btn btn-primary">Mark Complete</button>
+          </div>
+        </div>
+
+        <div id="searchResults" class="search-results hidden">
+          <h3>Search Results</h3>
+          <div id="searchSynthesis" class="search-synthesis"></div>
+          <div id="searchList" class="search-list"></div>
+        </div>
+
+        <div class="chat-section">
+          <div class="chat-header-row">
+            <h3>Ask the AI Tutor</h3>
+            <button id="translateChatBtn" class="btn btn-outline" title="Translate all chat to Dari">Translate to Dari</button>
+          </div>
+          <div id="chatMessages" class="chat-messages"></div>
+          <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Ask a question about this lesson..." />
+            <button id="chatSend" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+      <span class="loading"></span>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
