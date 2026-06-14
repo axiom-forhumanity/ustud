@@ -427,6 +427,7 @@ def populate_appendix_b(doc: Document) -> None:
     add_display_heading(doc, "Free Learning Resources", 2)
     links = [
         ("Team project on GitHub", "https://github.com/axiom-forhumanity/ustud", "All days"),
+        ("USTUD project one-pager", "https://github.com/axiom-forhumanity/ustud/blob/main/docs/USTUD_PROJECT_BRIEF_ONE_PAGER.docx", "Day 6+"),
         ("Project brief", "https://github.com/axiom-forhumanity/ustud/blob/main/docs/PROJECT_BRIEF.md", "Day 6+"),
         ("AXIOM vision", "https://github.com/axiom-forhumanity/ustud/blob/main/docs/AXIOM_VISION.md", "Day 6+"),
         ("GitHub Hello World", "https://docs.github.com/en/get-started/start-your-journey/hello-world", "Day 1"),

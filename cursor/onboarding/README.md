@@ -4,6 +4,8 @@ Welcome. This guide takes you from **zero** (new laptop, no GitHub experience) t
 
 **Printable guide:** [AXIOM_EMPLOYEE_ONBOARDING.docx](AXIOM_EMPLOYEE_ONBOARDING.docx) — Word document with hyperlinks and copy-paste terminal commands (AXIOM design).
 
+**Project one-pager:** [USTUD_PROJECT_BRIEF_ONE_PAGER.docx](../docs/USTUD_PROJECT_BRIEF_ONE_PAGER.docx) — vision, MVP, and your first objectives (read before Day 6).
+
 **Time commitment:** ~1 hour per day for two weeks (Monday–Friday), plus Day 0 setup when your laptop arrives.
 
 ---
