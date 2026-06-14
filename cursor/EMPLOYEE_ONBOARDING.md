@@ -36,7 +36,7 @@ Your repo is now the source of truth. You push all daily work here.
 ### Step 4 — Add management as collaborator
 On GitHub: **Your repo → Settings → Collaborators → Add people**
 
-Add `chefomid` (or the username management gives you) with **Write** or **Maintain** access.
+Add `axiom-forhumanity` (or the username management gives you) with **Write** or **Maintain** access.
 
 This lets management review commits, progress logs, and blockers.
 
