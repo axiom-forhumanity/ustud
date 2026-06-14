@@ -202,6 +202,7 @@ def populate_day_1(doc: Document) -> None:
     _day_git_push_steps(doc, "DayN: trust recording link added", start=4)
 
     add_section_divider(doc, "Learning link for today")
+    add_link_line(doc, "GitHub Hello World", "https://docs.github.com/en/get-started/start-your-journey/hello-world", "Optional ~30 min")
 
 
 def populate_day_2(doc: Document) -> None:
