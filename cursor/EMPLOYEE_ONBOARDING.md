@@ -11,7 +11,7 @@
 Clone the bootstrap repo from management (one-time handoff):
 
 ```bash
-git clone https://github.com/chefomid/ustud.git
+git clone https://github.com/axiom-forhumanity/ustud.git
 cd ustud
 ```
 
