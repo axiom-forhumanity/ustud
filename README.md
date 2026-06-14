@@ -108,7 +108,7 @@ ustud/
 
 This repo includes an AXIOM management layer for remote development with progress tracking.
 
-**Employees:** Read [cursor/EMPLOYEE_ONBOARDING.md](cursor/EMPLOYEE_ONBOARDING.md) first.
+**New employees:** Start with [cursor/onboarding/README.md](cursor/onboarding/README.md) (zero-to-hero Week 1). After graduation, use [cursor/EMPLOYEE_ONBOARDING.md](cursor/EMPLOYEE_ONBOARDING.md).
 
 Every Cursor session:
 1. Paste the **Session Start** command from [cursor/SESSION_COMMANDS.md](cursor/SESSION_COMMANDS.md)

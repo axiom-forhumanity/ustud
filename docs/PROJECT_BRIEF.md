@@ -14,11 +14,18 @@ This repo contains a working foundation:
 Build on this foundation. Do not rewrite from scratch unless documented and approved via progress/BLOCKERS.md.
 
 ## First priorities (Week 1)
-1. Clone repo, run `setup.ps1`, confirm app runs locally
-2. Read README.md and understand project structure
-3. Document current state in progress/CURRENT_STATE.md
-4. Identify top 3 gaps vs product vision (with Cursor's help)
-5. Deliver first small improvement (bugfix, UI polish, or module enhancement)
+
+Follow the bootcamp: [cursor/onboarding/README.md](../cursor/onboarding/README.md) (~1 hr/day Mon–Fri).
+
+**Graduation criteria:**
+1. Complete Day 0 laptop setup and GitHub collaborator access
+2. Daily trust recordings uploaded (see [cursor/onboarding/04_TRUST_RECORDING.md](../cursor/onboarding/04_TRUST_RECORDING.md))
+3. Log daily progress in `progress/WEEK1_LOG.md` and push to GitHub
+4. Learn Git, automation, AI/LLMs, and agents (NVIDIA + Cursor resources in onboarding)
+5. Run `setup.ps1`, then `npm run dev:all` — confirm app runs locally
+6. Document top 3 gaps in `progress/CURRENT_STATE.md`
+7. Deliver first small improvement (bugfix, UI polish, or module enhancement) by Friday
+8. Run Session Start / Session End from `cursor/SESSION_COMMANDS.md` without help
 
 ## How to run locally
 See root README.md:
