@@ -2,6 +2,8 @@
 
 Welcome. This guide takes you from **zero** (new laptop, no GitHub experience) to **ready to build** on the UStud project in one week.
 
+**Printable guide:** [AXIOM_EMPLOYEE_ONBOARDING.docx](AXIOM_EMPLOYEE_ONBOARDING.docx) — Word document with hyperlinks and copy-paste terminal commands (AXIOM design).
+
 **Time commitment:** ~1 hour per day, Monday through Friday, plus Day 0 setup when your laptop arrives.
 
 ---

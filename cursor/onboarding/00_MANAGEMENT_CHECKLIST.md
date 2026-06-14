@@ -41,6 +41,8 @@ If you want AI-generated daily summaries during Week 1, configure secrets per [d
 
 ## 5. Send welcome email
 
+Attach or link **[AXIOM_EMPLOYEE_ONBOARDING.docx](AXIOM_EMPLOYEE_ONBOARDING.docx)** (printable guide with hyperlinks and terminal commands).
+
 Copy, fill in the bracketed fields, and send:
 
 ```
@@ -51,8 +53,9 @@ Hi [First Name],
 Welcome to AXIOM. Your laptop is ready to set up.
 
 START HERE (read in order):
-1. Day 0 setup: https://github.com/axiom-forhumanity/ustud/blob/main/cursor/onboarding/01_DAY0_LAPTOP_SETUP.md
-2. Full onboarding index: https://github.com/axiom-forhumanity/ustud/blob/main/cursor/onboarding/README.md
+1. Download the Word guide: https://github.com/axiom-forhumanity/ustud/raw/main/cursor/onboarding/AXIOM_EMPLOYEE_ONBOARDING.docx
+2. Day 0 setup: https://github.com/axiom-forhumanity/ustud/blob/main/cursor/onboarding/01_DAY0_LAPTOP_SETUP.md
+3. Full onboarding index: https://github.com/axiom-forhumanity/ustud/blob/main/cursor/onboarding/README.md
 
 Before Monday:
 - Complete Day 0 (install software, create GitHub + NVIDIA accounts)
