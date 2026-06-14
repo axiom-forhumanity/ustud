@@ -1,10 +1,10 @@
 # AXIOM Employee Onboarding — Start Here
 
-Welcome. This guide takes you from **zero** (new laptop, no GitHub experience) to **ready to build** on the UStud project in one week.
+Welcome. This guide takes you from **zero** (new laptop, no GitHub experience) to **ready to build** on the UStud project over **two weeks**.
 
 **Printable guide:** [AXIOM_EMPLOYEE_ONBOARDING.docx](AXIOM_EMPLOYEE_ONBOARDING.docx) — Word document with hyperlinks and copy-paste terminal commands (AXIOM design).
 
-**Time commitment:** ~1 hour per day, Monday through Friday, plus Day 0 setup when your laptop arrives.
+**Time commitment:** ~1 hour per day for two weeks (Monday–Friday), plus Day 0 setup when your laptop arrives.
 
 ---
 
@@ -26,8 +26,9 @@ Welcome. This guide takes you from **zero** (new laptop, no GitHub experience) t
 | **Tuesday** | [03_WEEK1_BOOTCAMP.md](03_WEEK1_BOOTCAMP.md) | Automation basics, run setup script |
 | **Wednesday** | [03_WEEK1_BOOTCAMP.md](03_WEEK1_BOOTCAMP.md) + [05_FREE_LEARNING_RESOURCES.md](05_FREE_LEARNING_RESOURCES.md) | AI & LLMs (NVIDIA course) |
 | **Thursday** | [03_WEEK1_BOOTCAMP.md](03_WEEK1_BOOTCAMP.md) | Agents & Cursor workflow |
-| **Friday** | [03_WEEK1_BOOTCAMP.md](03_WEEK1_BOOTCAMP.md) | Run UStud, first real task |
-| **Every day Mon–Fri** | [04_TRUST_RECORDING.md](04_TRUST_RECORDING.md) | Record screen + webcam, upload |
+| **Friday** | [03_WEEK1_BOOTCAMP.md](03_WEEK1_BOOTCAMP.md) | Run UStud, first improvement |
+| **Week 1 daily** | [04_TRUST_RECORDING.md](04_TRUST_RECORDING.md) | Record screen + webcam, upload |
+| **Week 2 Mon–Fri** | Word guide Part 8 / [progress/WEEK2_LOG.md](../../progress/WEEK2_LOG.md) | Applied development on UStud |
 
 ---
 
@@ -46,13 +47,15 @@ Welcome. This guide takes you from **zero** (new laptop, no GitHub experience) t
 
 ## Your progress log
 
-During Week 1, update **[progress/WEEK1_LOG.md](../../progress/WEEK1_LOG.md)** every day. Commit and push it to GitHub so management can see your progress.
+During Week 1, update **[progress/WEEK1_LOG.md](../../progress/WEEK1_LOG.md)** every day. During Week 2, update **[progress/WEEK2_LOG.md](../../progress/WEEK2_LOG.md)**.
 
-After Week 1, follow **[cursor/EMPLOYEE_ONBOARDING.md](../EMPLOYEE_ONBOARDING.md)** for your daily work routine.
+After onboarding, follow **[cursor/EMPLOYEE_ONBOARDING.md](../EMPLOYEE_ONBOARDING.md)** for your daily work routine.
 
 ---
 
-## Week 1 graduation — you are ready when
+## Onboarding completion — you are ready when
+
+**Week 1**
 
 - [ ] You can `git pull`, edit a file, `git commit`, and `git push` without help
 - [ ] You uploaded trust recordings Mon–Fri to the folder management gave you
@@ -60,6 +63,12 @@ After Week 1, follow **[cursor/EMPLOYEE_ONBOARDING.md](../EMPLOYEE_ONBOARDING.md
 - [ ] `progress/CURRENT_STATE.md` lists the top 3 product gaps you found
 - [ ] You completed at least one small improvement (bugfix, doc, or UI polish)
 - [ ] You can run Session Start and Session End in Cursor without help
+
+**Week 2**
+- [ ] Three development tasks pushed to GitHub
+- [ ] `progress/WEEK2_LOG.md` completed Mon–Fri
+- [ ] Two-week summary in `progress/DAILY_LOG.md`
+- [ ] Offline tutor tested and documented
 
 ---
 

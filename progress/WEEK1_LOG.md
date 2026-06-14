@@ -83,7 +83,7 @@ Instructions: [cursor/onboarding/03_WEEK1_BOOTCAMP.md](../cursor/onboarding/03_W
 
 ---
 
-## Week 1 graduation checklist
+## Week 1 completion checklist
 
 - [ ] Daily git push works without help
 - [ ] Trust recordings uploaded Mon–Fri

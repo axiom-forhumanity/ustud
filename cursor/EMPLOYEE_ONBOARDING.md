@@ -2,7 +2,7 @@
 
 > **New employee?** Start with **[cursor/onboarding/README.md](onboarding/README.md)** for zero-to-hero Week 1 setup (laptop, GitHub, trust recordings, AI bootcamp).
 
-This document is your **ongoing workflow** after Week 1 graduation (or if you already know Git and Cursor).
+This document is your **ongoing workflow** after the two-week onboarding program (or if you already know Git and Cursor).
 
 ---
 

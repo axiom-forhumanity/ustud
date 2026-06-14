@@ -89,4 +89,4 @@ git push
 
 ## After Week 1
 
-Daily screen+webcam recording is **not** required after graduation unless management asks. Continue daily Git push and progress logs per [EMPLOYEE_ONBOARDING.md](../EMPLOYEE_ONBOARDING.md).
+Daily screen+webcam recording is **not** required after Week 1 unless management requests it. Continue daily Git push and progress logs per [EMPLOYEE_ONBOARDING.md](../EMPLOYEE_ONBOARDING.md).

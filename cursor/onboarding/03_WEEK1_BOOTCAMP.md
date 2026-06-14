@@ -196,9 +196,9 @@ Longer demo is OK today — walk through the running app, progress files, and yo
 
 ---
 
-## Week 1 graduation
+## Week 1 completion
 
-You graduate when all of these are true:
+You complete Week 1 when all of these are true:
 
 - [ ] Daily `git push` works without help
 - [ ] Trust recordings uploaded Mon–Fri
@@ -207,4 +207,4 @@ You graduate when all of these are true:
 - [ ] At least one small improvement merged via push
 - [ ] Session Start / Session End workflow completed at least once
 
-**After graduation:** follow [cursor/EMPLOYEE_ONBOARDING.md](../EMPLOYEE_ONBOARDING.md) for ongoing daily work.
+**After Week 1:** continue to Week 2 in the onboarding guide, then [cursor/EMPLOYEE_ONBOARDING.md](../EMPLOYEE_ONBOARDING.md) for ongoing work.

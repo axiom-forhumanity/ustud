@@ -6,7 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from docx import Document
-from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK, WD_LINE_SPACING
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
@@ -78,6 +78,45 @@ def add_spacer(doc: Document, pts: float = 12) -> None:
     p.paragraph_format.space_after = Pt(pts)
 
 
+def add_page_break(doc: Document) -> None:
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(0)
+    p.paragraph_format.space_after = Pt(0)
+    run = p.add_run()
+    run.add_break(WD_BREAK.PAGE)
+
+
+def add_section_divider(doc: Document, title: str, subtitle: str = "") -> None:
+    """Full-width dark divider with optional page break for major sections."""
+    add_page_break(doc)
+    table = doc.add_table(rows=1, cols=1)
+    table.autofit = False
+    cell = table.rows[0].cells[0]
+    _set_cell_shading(cell, "080808")
+    tc_pr = cell._tc.get_or_add_tcPr()
+    borders = OxmlElement("w:tcBorders")
+    for edge in ("top", "left", "bottom", "right"):
+        el = OxmlElement(f"w:{edge}")
+        el.set(qn("w:val"), "single")
+        el.set(qn("w:sz"), "12")
+        el.set(qn("w:color"), "1A1A1A")
+        borders.append(el)
+    tc_pr.append(borders)
+    p = cell.paragraphs[0]
+    p.paragraph_format.space_before = Pt(14)
+    p.paragraph_format.space_after = Pt(6)
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r = p.add_run(title.upper())
+    _run_font(r, FONT_MONO, 12, INK_PRIMARY, bold=True)
+    if subtitle:
+        p2 = cell.add_paragraph()
+        p2.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p2.paragraph_format.space_after = Pt(12)
+        r2 = p2.add_run(subtitle)
+        _run_font(r2, FONT_SANS, 10.5, INK_SECONDARY)
+    add_spacer(doc, 18)
+
+
 def add_section_label(doc: Document, text: str) -> None:
     p = doc.add_paragraph()
     p.paragraph_format.space_before = Pt(20)
@@ -87,7 +126,16 @@ def add_section_label(doc: Document, text: str) -> None:
     run.font.all_caps = True
 
 
-def add_part_heading(doc: Document, part_num: int, title: str, subtitle: str = "") -> None:
+def add_part_heading(
+    doc: Document,
+    part_num: int,
+    title: str,
+    subtitle: str = "",
+    *,
+    page_break: bool = True,
+) -> None:
+    if page_break:
+        add_page_break(doc)
     add_spacer(doc, 8)
     p = doc.add_paragraph()
     p.paragraph_format.space_before = Pt(6)
@@ -120,6 +168,13 @@ def add_body(doc: Document, text: str, space_after: float = 10) -> None:
     p.paragraph_format.space_after = Pt(space_after)
     p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.MULTIPLE
     p.paragraph_format.line_spacing = 1.25
+    run = p.add_run(text)
+    _run_font(run, FONT_SANS, 11, BODY_DARK)
+
+
+def add_bullet(doc: Document, text: str) -> None:
+    p = doc.add_paragraph(style="List Bullet")
+    p.paragraph_format.space_after = Pt(5)
     run = p.add_run(text)
     _run_font(run, FONT_SANS, 11, BODY_DARK)
 
@@ -262,33 +317,36 @@ def build_document() -> Document:
     hp = header_cell.paragraphs[0]
     hr1 = hp.add_run("AXIOM  |  EMPLOYEE ONBOARDING\n")
     _run_font(hr1, FONT_MONO, 9, INK_MUTED)
-    hr2 = hp.add_run("Your First Week — Step by Step\n")
+    hr2 = hp.add_run("Two-Week Onboarding Program\n")
     _run_font(hr2, FONT_DISPLAY, 22, INK_PRIMARY, bold=True)
-    hr3 = hp.add_run("No experience needed. Follow each step in order.")
+    hr3 = hp.add_run("Week 1: Foundations  |  Week 2: Applied Development")
     _run_font(hr3, FONT_SANS, 11, INK_SECONDARY)
 
     add_spacer(doc, 16)
     add_body(
         doc,
-        "Welcome. This guide assumes you have never used GitHub, the terminal, or coding tools before. "
-        "That is OK. Every step tells you exactly what to click, what to copy, and what you should see on screen.",
+        "This guide assumes no prior experience with GitHub, the terminal, or development tools. "
+        "Follow each part in order. Each step states what to click, what to copy, and what you should see on screen.",
         space_after=14,
     )
 
     add_callout(
         doc,
-        "How long",
-        "Day 0 (when your laptop arrives): 2 to 3 hours to install everything. "
-        "Monday to Friday: about 1 hour per day for lessons and practice.",
+        "Schedule",
+        "Day 0 (laptop setup): 2 to 3 hours. Weeks 1 and 2: about 1 hour per day, Monday through Friday. "
+        "Session recordings are required during Week 1 only unless management requests otherwise.",
         "tip",
     )
+
+    add_page_break(doc)
 
     # --- PART 0: READ FIRST ---
     add_part_heading(
         doc,
         0,
         "Read This Before Anything Else",
-        "Five things to understand before Day 0.",
+        "Required reading before Day 0.",
+        page_break=False,
     )
 
     add_display_heading(doc, "What is PowerShell?", 3)
@@ -325,7 +383,7 @@ def build_document() -> Document:
             "Right-click to paste (or press Ctrl+V).",
             "Press Enter on your keyboard.",
         ],
-        success="The command runs. New text appears. If you see red error text, read the step again or see Part 8 (Help).",
+        success="The command runs. New text appears. If you see red error text, read the step again or see Part 10 (Support).",
     )
 
     add_callout(
@@ -342,23 +400,27 @@ def build_document() -> Document:
     add_checklist_item(doc, "A contact email if you get stuck")
 
     add_display_heading(doc, "Table of contents", 3)
-    add_toc_item(doc, "Part 1", "Day 0 — Install software on your laptop")
-    add_toc_item(doc, "Part 2", "Day 0 — Create your online accounts")
-    add_toc_item(doc, "Part 3", "Simple words — what is GitHub?")
-    add_toc_item(doc, "Part 4", "Monday — Download the project and your first push")
-    add_toc_item(doc, "Part 5", "Tuesday to Friday — one section per day")
-    add_toc_item(doc, "Part 6", "How to record your screen (trust sessions)")
-    add_toc_item(doc, "Part 7", "Cursor — what to paste at start and end of work")
-    add_toc_item(doc, "Part 8", "When something goes wrong")
-    add_toc_item(doc, "Part 9", "Free learning links")
-    add_toc_item(doc, "Part 10", "Week 1 complete — graduation checklist")
+    add_toc_item(doc, "Part 1", "Day 0 — Install software")
+    add_toc_item(doc, "Part 2", "Day 0 — Create accounts")
+    add_toc_item(doc, "Part 3", "GitHub — concepts and setup")
+    add_toc_item(doc, "Part 4", "Week 1, Monday — Download the project")
+    add_toc_item(doc, "Part 5", "Week 1, Tuesday–Friday — Daily plan")
+    add_toc_item(doc, "Part 6", "Week 1 — Session recordings")
+    add_toc_item(doc, "Part 7", "Cursor — session commands")
+    add_toc_item(doc, "Part 8", "Week 2, Monday–Friday — Development plan")
+    add_toc_item(doc, "Part 9", "Learning resources")
+    add_toc_item(doc, "Part 10", "Support and troubleshooting")
+    add_toc_item(doc, "Part 11", "Onboarding completion criteria")
+
+    add_section_divider(doc, "Week 1 — Foundations", "Setup, GitHub, automation, AI concepts, first run of UStud")
 
     # --- PART 1: DAY 0 INSTALLS ---
     add_part_heading(
         doc,
         1,
         "Day 0 — Install Software",
-        "Do this when your laptop arrives, before Monday. Your laptop must be Windows 10 or 11.",
+        "Complete when your laptop arrives, before Week 1 Monday. Windows 10 or 11 required.",
+        page_break=False,
     )
 
     add_callout(doc, "Order matters", "Install programs in the order below. After each install, run the check command if one is shown.", "tip")
@@ -426,7 +488,7 @@ def build_document() -> Document:
         ),
         (
             "Install OBS Studio",
-            "OBS records your screen and webcam during Week 1.",
+            "OBS records your screen and webcam during Week 1 sessions.",
             "https://obsproject.com/",
             [
                 "Open the download link. Download and install.",
@@ -501,7 +563,12 @@ def build_document() -> Document:
     add_numbered_step(doc, 1, "Sign up for a free account", ["Follow the website steps. Verify your email if asked."])
 
     # --- PART 3: GITHUB EXPLAINED ---
-    add_part_heading(doc, 3, "Simple Words — What Is GitHub?", "Read this on Monday before you download the project.")
+    add_part_heading(
+        doc,
+        3,
+        "GitHub — Concepts and Setup",
+        "Read on Week 1 Monday before you download the project.",
+    )
 
     add_body(
         doc,
@@ -537,12 +604,12 @@ def build_document() -> Document:
     add_code_block(doc, 'git config --global user.name "Your Full Name"')
     add_code_block(doc, 'git config --global user.email "your.email@example.com"')
 
-    # --- PART 4: MONDAY ---
+    # --- PART 4: WEEK 1 MONDAY ---
     add_part_heading(
         doc,
         4,
-        "Monday — Download the Project",
-        "About 1 hour. Start OBS recording first (see Part 6).",
+        "Week 1, Monday — Download the Project",
+        "About 1 hour. Start your session recording first (see Part 6).",
     )
 
     add_callout(doc, "Before you start", "Start OBS recording (screen + webcam). Pause OBS if you type a password.", "watch")
@@ -625,8 +692,13 @@ def build_document() -> Document:
     lp = doc.add_paragraph()
     add_hyperlink(lp, "https://docs.github.com/en/get-started/start-your-journey/hello-world", "https://docs.github.com/en/get-started/start-your-journey/hello-world")
 
-    # --- PART 5: TUE-FRI ---
-    add_part_heading(doc, 5, "Tuesday to Friday — Daily Plan", "Same order every day: OBS on, lesson, upload video, update log, git push.")
+    # --- PART 5: WEEK 1 TUE-FRI ---
+    add_part_heading(
+        doc,
+        5,
+        "Week 1, Tuesday–Friday — Daily Plan",
+        "Same order each day: start recording, complete the lesson, upload video, update log, push to GitHub.",
+    )
 
     add_callout(
         doc,
@@ -636,7 +708,7 @@ def build_document() -> Document:
     )
 
     # Tuesday
-    add_display_heading(doc, "Tuesday — Automation", 2)
+    add_display_heading(doc, "Week 1, Tuesday — Automation", 2)
     add_body(doc, "Automation means the computer does steps for you. Example: setup.ps1 installs packages automatically instead of you clicking many times.")
     add_numbered_step(doc, 1, "Pull latest code", ["In PowerShell, from the ustud folder:"], "git pull", "Success message")
     add_numbered_step(
@@ -658,7 +730,8 @@ def build_document() -> Document:
     add_hyperlink(lp, "https://docs.github.com/en/actions/quickstart", "https://docs.github.com/en/actions/quickstart")
 
     # Wednesday
-    add_display_heading(doc, "Wednesday — AI and LLMs", 2)
+    add_page_break(doc)
+    add_display_heading(doc, "Week 1, Wednesday — AI and LLMs", 2)
     add_body(doc, "An LLM (Large Language Model) is AI that reads and writes text. UStud uses a local LLM so students can learn without internet.")
     add_numbered_step(doc, 1, "Open NVIDIA free courses", ["Sign in with your NVIDIA account from Part 2."])
     lp = doc.add_paragraph()
@@ -682,7 +755,8 @@ def build_document() -> Document:
     )
 
     # Thursday
-    add_display_heading(doc, "Thursday — Agents and Cursor", 2)
+    add_page_break(doc)
+    add_display_heading(doc, "Week 1, Thursday — Agents and Cursor", 2)
     add_body(doc, "A chatbot only talks. An agent can also read files, edit code, and run commands. Cursor in Agent mode is an agent.")
     add_numbered_step(doc, 1, "Continue NVIDIA course or start Augment Your LLM Using RAG", ["Same NVIDIA link as Wednesday."])
     add_numbered_step(
@@ -713,8 +787,9 @@ def build_document() -> Document:
     add_hyperlink(lp, "https://docs.cursor.com/get-started/introduction", "https://docs.cursor.com/get-started/introduction")
 
     # Friday
-    add_display_heading(doc, "Friday — Run the App", 2)
-    add_body(doc, "Today you run UStud on your laptop and make one small improvement.")
+    add_page_break(doc)
+    add_display_heading(doc, "Week 1, Friday — Run the Application", 2)
+    add_body(doc, "Run UStud on your laptop and deliver your first small improvement.")
     add_numbered_step(doc, 1, "Pull latest", [], "git pull", "Success")
     add_numbered_step(doc, 2, "Install dependencies (first time only)", ["Run each line, wait for each to finish:"], "npm install", "Completes without errors")
     add_numbered_step(doc, 3, "Install UI dependencies", [], "cd boiler", "Folder changes")
@@ -747,8 +822,21 @@ def build_document() -> Document:
         ],
     )
 
+    add_callout(
+        doc,
+        "End of Week 1",
+        "Confirm: GitHub push works, session recordings uploaded Mon–Fri, UStud runs at http://localhost:5173, "
+        "and progress/CURRENT_STATE.md lists three product gaps.",
+        "stable",
+    )
+
     # --- PART 6: OBS ---
-    add_part_heading(doc, 6, "How to Record Your Screen (Trust Sessions)", "Monday through Friday, about 1 hour each day.")
+    add_part_heading(
+        doc,
+        6,
+        "Week 1 — Session Recordings",
+        "Required Monday through Friday during Week 1, about 1 hour per session.",
+    )
 
     add_body(
         doc,
@@ -771,7 +859,12 @@ def build_document() -> Document:
         add_numbered_step(doc, i, title, instr, success=ok)
 
     # --- PART 7: CURSOR COMMANDS ---
-    add_part_heading(doc, 7, "Cursor — Copy and Paste Blocks", "Use these every work session after Week 1 too.")
+    add_part_heading(
+        doc,
+        7,
+        "Cursor — Session Commands",
+        "Use at the start and end of every work session during Week 2 and ongoing development.",
+    )
 
     add_display_heading(doc, "Session Start — paste at the beginning", 2)
     add_body(doc, "Copy everything in the box below into Cursor chat:")
@@ -810,8 +903,187 @@ Update:
 Then show me a summary of exactly what you logged so I can review before I commit and push to GitHub.""",
     )
 
-    # --- PART 8: TROUBLESHOOTING ---
-    add_part_heading(doc, 8, "When Something Goes Wrong", "Common problems and fixes.")
+    add_section_divider(doc, "Week 2 — Applied Development", "Build on UStud, deliver improvements, establish daily workflow")
+
+    # --- PART 8: WEEK 2 ---
+    add_part_heading(
+        doc,
+        8,
+        "Week 2, Monday–Friday — Development Plan",
+        "About 1 hour per day. Session recordings are not required unless management asks. Daily git push is required.",
+        page_break=False,
+    )
+
+    add_callout(
+        doc,
+        "Daily workflow",
+        "1. Open PowerShell.  2. cd $HOME\\Documents\\ustud  3. git pull  "
+        "4. Session Start in Cursor  5. Complete that day's task  6. Session End  7. git add ., commit, push",
+        "stable",
+    )
+
+    add_body(doc, "Update progress/WEEK2_LOG.md each day (same format as WEEK1_LOG.md). Use progress/DAILY_LOG.md for detailed work entries.")
+
+    # Week 2 Monday
+    add_display_heading(doc, "Week 2, Monday — Codebase Orientation", 2)
+    add_body(doc, "Objective: Understand where code, UI, and course content live before making changes.")
+    add_numbered_step(doc, 1, "Pull latest code", ["Open PowerShell in the ustud folder."], "git pull", "Success message")
+    add_numbered_step(
+        doc,
+        2,
+        "Start Cursor session",
+        ["Paste Session Start from Part 7.", "Ask Cursor to walk through these folders one at a time:"],
+    )
+    add_bullet(doc, "src/ustud/ - Python backend (API, AI tutor logic)")
+    add_bullet(doc, "boiler/ - React user interface")
+    add_bullet(doc, "modules/ - course content and curriculum")
+    add_bullet(doc, "progress/ - your logs and project status files")
+    add_numbered_step(
+        doc,
+        3,
+        "Update progress/CURRENT_STATE.md",
+        [
+            "Expand your Week 1 gap list into full sentences.",
+            "Add a section: Recommended next task (pick the smallest gap).",
+            "Session End, then git add ., commit, push.",
+        ],
+    )
+    add_numbered_step(
+        doc,
+        4,
+        "Log Week 2 progress",
+        ["Fill Monday section in progress/WEEK2_LOG.md.", "Commit and push."],
+    )
+
+    add_page_break(doc)
+    add_display_heading(doc, "Week 2, Tuesday — First Development Task", 2)
+    add_body(doc, "Objective: Ship one improvement tied to gap #1 in CURRENT_STATE.md.")
+    add_numbered_step(doc, 1, "Pull and start session", [], "git pull", "Success")
+    add_numbered_step(
+        doc,
+        2,
+        "Implement gap #1",
+        [
+            "Session Start in Cursor.",
+            "Tell Cursor: Help me implement the first gap listed in progress/CURRENT_STATE.md. Keep the change small.",
+            "Test locally if the app is running (npm run dev:all).",
+        ],
+    )
+    add_numbered_step(
+        doc,
+        3,
+        "Document and push",
+        [
+            "Session End — confirm DAILY_LOG.md and CURRENT_STATE.md are updated.",
+            "Fill Tuesday section in WEEK2_LOG.md.",
+        ],
+    )
+    add_code_block(doc, 'git add .\ngit commit -m "Week2 Day2: first development task - [brief description]"\ngit push')
+
+    add_page_break(doc)
+    add_display_heading(doc, "Week 2, Wednesday — AI Integration", 2)
+    add_body(doc, "Objective: Connect training to the product. Finish NVIDIA RAG content and test the offline tutor.")
+    add_numbered_step(doc, 1, "Complete NVIDIA course", ["Finish Generative AI Explained or complete Augment Your LLM Using RAG."])
+    lp = doc.add_paragraph()
+    add_hyperlink(lp, "https://www.nvidia.com/en-us/training/self-paced-courses/", "https://www.nvidia.com/en-us/training/self-paced-courses/")
+    add_numbered_step(
+        doc,
+        2,
+        "Test UStud tutor",
+        [
+            "Ensure the app is running (npm run dev:all).",
+            "Open http://localhost:5173",
+            "Ask the offline tutor one question about a lesson topic.",
+            "Note in WEEK2_LOG.md: Did it work? What would improve the response?",
+        ],
+    )
+    add_numbered_step(doc, 3, "Push your notes", [], "git pull", "Success")
+    add_numbered_step(
+        doc,
+        4,
+        "Commit log updates",
+        ["After editing WEEK2_LOG.md and DAILY_LOG.md:"],
+        'git add .\ngit commit -m "Week2 Day3: AI integration notes and tutor test"\ngit push',
+    )
+
+    add_page_break(doc)
+    add_display_heading(doc, "Week 2, Thursday — Second Development Task", 2)
+    add_body(doc, "Objective: Deliver one UI or module improvement (gap #2 or related polish).")
+    add_numbered_step(doc, 1, "Pull and Session Start", [], "git pull", "Success")
+    add_numbered_step(
+        doc,
+        2,
+        "Build and test",
+        [
+            "Work in boiler/ (UI) or modules/ (content) with Cursor.",
+            "Verify the change in the browser or app.",
+            "Session End before push.",
+        ],
+    )
+    add_code_block(doc, 'git add .\ngit commit -m "Week2 Day4: second development task - [brief description]"\ngit push')
+    add_numbered_step(
+        doc,
+        3,
+        "Update WEEK2_LOG.md",
+        ["Record what you changed and whether it is working."],
+    )
+
+    add_page_break(doc)
+    add_display_heading(doc, "Week 2, Friday — Third Deliverable and Summary", 2)
+    add_body(doc, "Objective: Complete a third small improvement and submit your two-week onboarding summary.")
+    add_numbered_step(doc, 1, "Pull latest", [], "git pull", "Success")
+    add_numbered_step(
+        doc,
+        2,
+        "Third improvement",
+        [
+            "Address gap #3, or refine one of this week's changes.",
+            "Confirm UStud still runs locally.",
+        ],
+    )
+    add_numbered_step(
+        doc,
+        3,
+        "Write two-week summary",
+        [
+            "In progress/DAILY_LOG.md, add a summary entry covering:",
+            "What you built in Week 2",
+            "What remains blocked or unclear",
+            "Your recommended focus for Week 3",
+            "Complete Friday section in WEEK2_LOG.md.",
+            "Session End, then push.",
+        ],
+    )
+    add_code_block(doc, 'git add .\ngit commit -m "Week2 Day5: third deliverable and onboarding summary"\ngit push')
+
+    add_callout(
+        doc,
+        "End of Week 2",
+        "Review Part 11 completion criteria with management. Ongoing daily work follows cursor/EMPLOYEE_ONBOARDING.md in the repo.",
+        "stable",
+    )
+
+    # --- PART 9: LEARNING LINKS ---
+    add_part_heading(doc, 9, "Learning Resources", "Hyperlinks for courses and reference material.")
+
+    links = [
+        ("Team project on GitHub", "https://github.com/axiom-forhumanity/ustud", "Always"),
+        ("Project brief", "https://github.com/axiom-forhumanity/ustud/blob/main/docs/PROJECT_BRIEF.md", "Week 2"),
+        ("AXIOM vision", "https://github.com/axiom-forhumanity/ustud/blob/main/docs/AXIOM_VISION.md", "Week 2"),
+        ("GitHub Hello World", "https://docs.github.com/en/get-started/start-your-journey/hello-world", "Week 1 Mon"),
+        ("GitHub Actions intro", "https://docs.github.com/en/actions/quickstart", "Week 1 Tue"),
+        ("NVIDIA free courses", "https://www.nvidia.com/en-us/training/self-paced-courses/", "Week 1 Wed–Thu, Week 2 Wed"),
+        ("Cursor introduction", "https://docs.cursor.com/get-started/introduction", "Week 1 Thu"),
+        ("Cursor Agent mode", "https://docs.cursor.com/chat/agent", "Week 2"),
+        ("Git basics book", "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control", "Reference"),
+    ]
+    for label, url, when in links:
+        add_link_line(doc, label, url, when)
+
+    add_body(doc, "Save NVIDIA course certificates as screenshots in your Week 1 upload folder if provided.")
+
+    # --- PART 10: TROUBLESHOOTING ---
+    add_part_heading(doc, 10, "Support and Troubleshooting", "Common issues and resolution steps.")
 
     add_display_heading(doc, "Push failed: Permission denied (403)", 2)
     add_body(doc, "You are logged into the wrong GitHub account.")
@@ -837,39 +1109,36 @@ Then show me a summary of exactly what you logged so I can review before I commi
     add_code_block(doc, "python scripts/download_oer.py")
     add_body(doc, "If it still fails, write in progress/BLOCKERS.md and email management.")
 
-    add_display_heading(doc, "Something else is broken", 2)
+    add_display_heading(doc, "Other issues", 2)
     add_body(doc, "1. Write what happened in progress/BLOCKERS.md.  2. git push.  3. Email management.")
 
-    # --- PART 9: LINKS ---
-    add_part_heading(doc, 9, "Free Learning Links", "Click to open. Save NVIDIA certificates as screenshots if you earn them.")
+    # --- PART 11: COMPLETION ---
+    add_part_heading(doc, 11, "Onboarding Completion Criteria", "Confirm each item with management at the end of Week 2.")
 
-    links = [
-        ("Team project on GitHub", "https://github.com/axiom-forhumanity/ustud", "Always"),
-        ("GitHub Hello World", "https://docs.github.com/en/get-started/start-your-journey/hello-world", "Monday"),
-        ("GitHub Actions intro", "https://docs.github.com/en/actions/quickstart", "Tuesday"),
-        ("NVIDIA free courses", "https://www.nvidia.com/en-us/training/self-paced-courses/", "Wed–Thu"),
-        ("Cursor introduction", "https://docs.cursor.com/get-started/introduction", "Thursday"),
-        ("Git basics book", "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control", "Anytime"),
-    ]
-    for label, url, when in links:
-        add_link_line(doc, label, url, when)
-
-    # --- PART 10: GRADUATION ---
-    add_part_heading(doc, 10, "Week 1 Complete — Graduation Checklist", "When every box is checked, you are ready for regular work.")
-
+    add_display_heading(doc, "Week 1 — Foundation", 2)
     for item in [
-        "I can open PowerShell and run git pull, git add ., git commit, git push without help",
-        "I uploaded screen recordings every day Monday through Friday",
-        "UStud opens in my browser at http://localhost:5173",
-        "progress/CURRENT_STATE.md lists the top 3 product gaps",
-        "I pushed at least one small improvement to GitHub",
-        "I used Session Start and Session End in Cursor",
+        "Git pull, git add, git commit, and git push completed without assistance",
+        "Session recordings uploaded each weekday during Week 1",
+        "UStud runs locally at http://localhost:5173",
+        "progress/CURRENT_STATE.md lists three product gaps",
+        "At least one small improvement pushed to GitHub",
+        "Session Start and Session End used in Cursor",
+    ]:
+        add_checklist_item(doc, item)
+
+    add_display_heading(doc, "Week 2 — Development", 2)
+    for item in [
+        "Three development tasks pushed to GitHub (Tue, Thu, Fri minimum)",
+        "progress/WEEK2_LOG.md completed for all five weekdays",
+        "progress/DAILY_LOG.md includes a two-week summary entry",
+        "Offline tutor tested and results documented",
+        "Daily Session Start / Session End workflow followed without prompts",
     ]:
         add_checklist_item(doc, item)
 
     add_spacer(doc, 12)
-    add_body(doc, "After graduation, your daily guide is cursor/EMPLOYEE_ONBOARDING.md in the repo.")
-    add_body(doc, "Questions: progress/BLOCKERS.md or email management.")
+    add_body(doc, "After onboarding, your daily operating guide is cursor/EMPLOYEE_ONBOARDING.md in the repo.")
+    add_body(doc, "Questions and blockers: progress/BLOCKERS.md or contact management directly.")
 
     fp = doc.add_paragraph()
     fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
